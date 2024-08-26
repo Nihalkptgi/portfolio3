@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="About Mohammed Nihal, a front-end developer skilled in Python, HTML, CSS, and Django.">
+    <title>About - Mohammed Nihal</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+        }
+</style><style alighn="center">
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+
+        header p {
+            margin: 10px 0;
+            font-size: 1.2rem;
+        }
+    </style>
+    
+<style>
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav ul li a:hover {
+            text-decoration: underline;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        h2 {
+            color: #333;
+            border-bottom: 2px solid #333;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+
+        p {
+            margin-bottom: 20px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        ul li {
+            background: #fff;
+            margin-bottom: 10px;
+            padding: 15px;
+            border-left: 5px solid #333;
+        }
+
+        #contact ul {
+            padding-left: 20px;
+        }
+
+        #contact ul li {
+            background: none;
+            border-left: none;
+            padding: 5px 0;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <img align="left" src="{% static 'hey.png' %}"  alt="Your Avatar" class="avatar" width="200" height="auto" right="300">
+
+        <h1>Mohammed Nihal</h1>
+        <p>Full-stack Developer</p>
+        <nav>
+            <ul>
+                <!-- <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="skills.html">Skills</a></li>
+                <li><a href="projects.html">Projects</a></li> -->
+            </ul>
+        </nav>
+    </header>
+
+
+    <main>
+        <section id="about">
+            <h2>About Me</h2>
+            <p>I am a front-end developer with a strong focus on creating responsive and efficient web applications. I have experience collaborating with cross-functional teams to deliver high-quality software within project deadlines. I am skilled in Python, HTML, CSS, and Django, with a passion for continuous learning and innovation in programming.</p>
+        </section>
+
+        <section id="education">
+            <h2>Education</h2>
+            <ul>
+                <li>
+                    <h3>Diploma in Information Technology</h3>
+                    <p>Government Polytechnic College Purappuzha, 2021 – 2024</p>
+                </li>
+                <li>
+                    <h3>Higher Secondary</h3>
+                    <p>Government Higher Secondary School Thirurangadi, 2019 – 2021</p>
+                </li>
+            </ul>
+        </section>
+
+        <section id="skills">
+            <h2>Skills</h2>
+            <ul>
+                <li>Python</li>
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>Django</li>
+            </ul>
+        </section>
+        <section id="interests">
+            <h2>Interests</h2>
+            <p>I have a deep interest in programming, open-source contributions, and web design. I am always exploring new technologies and contributing to projects that align with my passion for innovation.</p>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Mohammed Nihal. All rights reserved.</p>
+    </footer>
+
+</body>
+
+</html>

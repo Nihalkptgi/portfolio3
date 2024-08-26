@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Site with Dark Mode</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow-x: hidden;
+            scroll-behavior: smooth; /* Smooth scrolling */
+            transition: background-color 0.5s ease, color 0.5s ease;
+            color: white;
+        }
+
+        body.dark-mode {
+            background-color: #121212;
+            color: #f0f0f0;
+        }
+
+        .background-video {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        .boy-container {
+            position: relative;
+            width: 200px;
+            height: 400px;
+            z-index: 1;
+            margin: auto;
+        }
+
+        .boy {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: url('{% static "images/boy.png" %}') no-repeat center/contain;
+            transform-origin: center top;
+            transition: transform 0.1s ease-out;
+        }
+
+        .corner-button {
+            position: fixed;
+            width: 100px;
+            height: 100px;
+            background-color: rgba(51, 51, 51, 0.8);
+            color: #fff;
+            text-align: center;
+            line-height: 100px;
+            text-decoration: none;
+            font-size: 16px;
+            transition: background-color 0.3s, transform 0.3s;
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .corner-button:hover {
+            background-color: rgba(68, 68, 68, 0.8);
+            transform: scale(1.1);
+        }
+
+        #btn-about {
+            top: 20px;
+            left: 20px;
+            border-radius: 0 0 50% 50%;
+        }
+
+        #btn-qualification {
+            top: 20px;
+            right: 20px;
+            border-radius: 0 0 50% 50%;
+        }
+
+        #btn-experience {
+            bottom: 20px;
+            left: 20px;
+            border-radius: 50% 50% 0 0;
+        }
+
+        #btn-contact {
+            bottom: 20px;
+            right: 20px;
+            border-radius: 50% 50% 0 0;
+        }
+
+        .dark-mode-toggle {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: transparent;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            z-index: 1;
+            width: 50px;
+            height: 50px;
+        }
+
+        .moon-icon {
+            width: 40px;
+            height: 40px;
+            background-color: yellow;
+            border-radius: 50%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .moon-icon::before {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 40px;
+            background-color: #121212;
+            border-radius: 50%;
+            right: 0;
+            top: -10px;
+            transform: rotate(45deg);
+        }
+
+        .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .content {
+            width: 100%;
+            max-width: 800px; /* Adjust as needed */
+            padding: 20px;
+            box-sizing: border-box;
+            text-align: center;
+            margin: 20px 0;
+            border: 1px solid #ccc;
+            background-color: rgba(255, 255, 255, 0.8); /* Optional for better readability */
+        }
+
+        .section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="profile" style="text-align: center;">
+        <img src="{% static 'embarrassed spotlight.png' %}" alt="Your Avatar" class="avatar" width="550" height="auto">
+        <h1>MOHAMMED NIHAL</h1>
+        <p>Web Developer | Designer | Enthusiast</p>
+    </div>
+
+   
+
+    <div class="boy-container">
+        <div class="boy" id="boy"></div>
+    </div>
+
+    <a href="{% url 'about' %}"id="btn-about" class="corner-button">About</a>
+    <a href="{% url 'qulification' %}" id="btn-qualification" class="corner-button">Qualification</a>
+    <a href="{% url 'experince' %}" id="btn-experience" class="corner-button">Experience</a>
+    <a href="{% url 'contact' %}" id="btn-contact" class="corner-button">Contacts</a>
+
+    
+
+    <button class="dark-mode-toggle" onclick="toggleDarkMode()">
+        <div class="moon-icon"></div>
+    </button>
+
+    <script>
+        document.addEventListener('mousemove', (e) => {
+            const boy = document.getElementById('boy');
+            const rect = boy.getBoundingClientRect();
+
+            const boyCenterX = rect.left + rect.width / 2;
+            const boyCenterY = rect.top + rect.height / 2;
+
+            const angleX = (e.clientX - boyCenterX) / 20;
+            const angleY = (e.clientY - boyCenterY) / 20;
+
+            boy.style.transform = `rotateX(${angleY}deg) rotateY(${angleX}deg)`;
+        });
+
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+        }
+    </script>
+</body>
+</html>
+
+
